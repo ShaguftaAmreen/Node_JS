@@ -1,0 +1,146 @@
+
+body   {
+margin: 0;
+padding: 0;
+
+background-color: whitesmoke;
+min-height: 100vh;
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+text-align: center;
+}
+
+
+
+.neo-morph {
+display: flex;
+flex-direction: column; 
+align-items: center;
+justify-content: center;
+
+top:50%;
+translate:0 -50%;
+border:none;
+border-radius: 20px;
+background-color: rgba(245, 245, 245, 1);
+backdrop-filter: blur(4px);
+
+
+box-shadow:
+
+inset -5px -5px 5px  white,
+inset 5px 5px 5px  rgb(220, 227, 233);
+transition: box-shadow .5s 0.2s;
+
+}
+.neo-morph * {
+animation: tset 1s ease .5s 1 both;
+}
+
+.neo-morph form {
+display: flex;
+flex-direction: column;
+align-items: center;
+animation-delay: .5s;
+
+}
+
+
+
+@keyframes tset {
+0% {
+opacity: 0;
+}
+100% {
+opacity: 1;
+}
+}
+
+
+
+.neo-morph .form-group {
+position: relative;
+width: 300px;
+height: 50px;
+animation-delay: 1s;
+display: grid;  
+place-items: center;
+margin: 1rem;;
+}
+.neo-morph .form-group::after {
+content: attr(for);
+position: absolute;
+
+display: block;
+transition: all 0.5s;
+top: 50%;
+transform: translate(-50%, -50%);
+left: 50%;
+transform-origin: right;
+
+text-align: center;
+
+color:gray;
+
+}
+
+.neo-morph .form-group:focus-within::after,
+.neo-morph .form-group:has(input:not(:placeholder-shown))::after {
+transform: translate(-100%, -150%) scale(0.5);
+
+
+}
+
+
+
+.neo-morph input {
+display: block;
+text-align: center;
+border: none;
+outline: none;
+font-size: 1.1rem;
+padding:10px;
+background-color: transparent;
+box-shadow: 
+        -5px -5px 5px  white,
+        5px 5px 5px  rgb(220, 227, 233);;            
+border-radius: 20px / 50%;
+transition: box-shadow .8s 0.5s, color .8s 0.5s;
+min-width: 200px;
+color: olive;
+}
+
+
+.neo-morph  input:focus,
+.neo-morph .form-group input:not(:placeholder-shown)  {
+box-shadow:
+        -5px -5px 5px  white,
+        5px 5px 5px  aliceblue,
+        inset -5px -5px 5px  white,
+        inset 5px 5px 5px  rgb(220, 237, 252);
+background-color:   aliceblue;
+transition-delay: 0s;
+
+}
+
+
+.neo-morph .form-group:has(input:placeholder-shown) ~ input {
+box-shadow:
+        none;
+background-color:   whitesmoke;
+transition-delay: 0s;
+color: white;
+clip-path:text ;
+cursor: not-allowed;
+}
+
+
+.neo-morph label {
+display: none;
+text-align: center;
+font-size: 1.1rem;
+padding: 5px 0;
+}
+
